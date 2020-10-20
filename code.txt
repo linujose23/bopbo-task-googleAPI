@@ -1,0 +1,11 @@
+ if "Bank_Statement_Image" in request.FILES:
+            files = request.FILES.getlist("Bank_Statement_Image")
+            i = 0
+            for file in files:
+                print(type(file))
+                myobj = New_users(0)
+                myobj.bank_statement_image.field.upload_to = (
+                    str(LRN) + "/F_Bank_statement/img/"
+                )
+                myobj.bank_statement_image = file
+                myobj.save()
